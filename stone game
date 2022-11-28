@@ -1,0 +1,40 @@
+Bot.send("Welcome challenger!!");
+Bot.send("Can you beat me in a game of stone paper and scissors?");
+Bot.send("What do you want to choose?stone paper or scissors?");
+var options=["stone","paper","scissors"];
+
+async function respond(inputText){
+	var userChoice=inputText.tolowercase();
+	if(userChoice=="stone"|| userChoice=="paper"|| userChoice=="scissor"){
+		Bot.send("Your choice is:"+userChoice);
+		var computerChoice=options[Math.floor(Math.random()*3)];
+		Bot.send("My choice is:"+ computerChoice);
+		if(computerChoice==options[0]){
+			if(userChoice==options[0]){
+				Bot.send("It's tie!!");
+			}else if(userChoice==options[1]){
+				Bot.send("You won!!");
+			}else if(userChoice==options[2]){
+				Bot.send("you lose!!");
+			}
+		}else if(computerChoice==options[1]){
+			if(userChoice==options[0]){
+				Bot.send("you lose!!");
+			}else if(userChoice==options[1]){
+				Bot.send("It's tie!!");
+			}else if(userChoice==options[2]){
+				Bot.send("You won!!");
+			}
+		}if(computerChoice==options[2]){
+			if(userChoice==options[0]){
+				Bot.send("You won!!");
+			}else if(userChoice==options[1]){
+				Bot.send("You lose!!");
+			}else if (userChoice==options[2]){
+				Bot.send("It's tie!!");
+			}
+		}
+	}else {
+		Bot.send("Invalid input! Try again");
+    }
+}
